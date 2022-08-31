@@ -522,7 +522,7 @@ namespace DerpyNewbie.Logger
 
         public static string GetVersion()
         {
-            return "0.3.4";
+            return "0.1.1";
         }
 
         public static string GetLicense()
