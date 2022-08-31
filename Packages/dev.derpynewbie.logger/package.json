@@ -1,0 +1,31 @@
+{
+  "name": "dev.derpynewbie.logger",
+  "version": "0.1.0",
+  "displayName": "Newbie Logger",
+  "description": "Feature rich U# Logger/Console for VRChat",
+  "unity": "2019.4",
+  "author": {
+    "name": "DerpyNewbie",
+    "email": "derpynewbie@gmail.com",
+    "url": "https://github.com/derpynewbie"
+  },
+  "sample": [
+    {
+      "displayName": "NewbieLoggerSampleScene",
+      "description": "Newbie Logger Sample Scene",
+      "path": "Samples/Scenes"
+    }
+  ],
+  "vpmDependencies": {
+    "com.vrchat.worlds": "3.1.x",
+    "com.vrchat.udonsharp": "1.1.x"
+  },
+  "gitDependencies": {
+    "com.vrchat.base": "https://github.com/vrchat/packages.git?path=/packages/com.vrchat.base#3.0.4",
+    "com.vrchat.worlds": "https://github.com/vrchat/packages.git?path=/packages/com.vrchat.worlds#3.0.4",
+    "com.vrchat.udonsharp": "https://github.com/vrchat-community/UdonSharp.git?path=/Packages/com.vrchat.UdonSharp#1.0.1",
+    "dev.derpynewbie.commons": "https://github.com/derpynewbie/NewbieCommons.git?path=/Packages/dev.derpynewbie.commons#0.1.0"
+  },
+  "url": "https://github.com/derpynewbie/NewbieLogger.git?path=/Packages/dev.derpynewbie.logger#0.1.0",
+  "hideInEditor": false
+}
