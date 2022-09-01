@@ -254,17 +254,14 @@ namespace DerpyNewbie.Logger
                     {
                         LogInternal("Console::Executor: Found 'VERSION' instruction");
 
-                        this.NewLine();
-                        this.Println($"NewbieConsole - [{GetVersion()}]");
-                        this.NewLine();
+                        this.Println($"NewbieLogger/Console - v{GetVersion()}");
                         continue;
                     }
                     case "license":
                     {
                         LogInternal("Console::Executor: Found 'LICENSE' instruction");
 
-                        this.NewLine();
-                        this.Println("NewbieConsole/Logger and NewbieCommons is licensed under MIT license");
+                        this.Println("NewbieLogger/Console and NewbieCommons is licensed under MIT license");
                         this.NewLine();
                         this.Println(GetLicense());
                         continue;
@@ -522,7 +519,7 @@ namespace DerpyNewbie.Logger
 
         public static string GetVersion()
         {
-            return "0.1.1";
+            return "0.1.2";
         }
 
         public static string GetLicense()
