@@ -27,6 +27,8 @@ namespace DerpyNewbie.Logger
         [FormerlySerializedAs("_roleProvider")]
         [SerializeField]
         private RoleProvider roleProvider;
+        [SerializeField]
+        private bool isMasterSuperUser;
 
         private bool _isInitialized;
 
@@ -44,7 +46,8 @@ namespace DerpyNewbie.Logger
         [PublicAPI]
         public RoleData CurrentRole { get; protected set; }
         [PublicAPI]
-        public bool IsSuperUser => CurrentRole != null && CurrentRole.RoleProperties.ContainsItem("moderator");
+        public bool IsSuperUser => (CurrentRole != null && CurrentRole.RoleProperties.ContainsItem("moderator")) ||
+                                   (isMasterSuperUser && Networking.IsMaster);
 
         public override int LogLevel
         {
