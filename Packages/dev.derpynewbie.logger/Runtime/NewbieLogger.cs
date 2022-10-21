@@ -19,7 +19,7 @@ namespace DerpyNewbie.Logger
             this.LogInternal("Logger::Start complete");
         }
 
-        public int MaxChars
+        public override int MaxChars
         {
             get => _maxChars;
             set

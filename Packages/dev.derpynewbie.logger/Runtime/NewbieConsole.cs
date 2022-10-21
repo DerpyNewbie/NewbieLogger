@@ -52,6 +52,12 @@ namespace DerpyNewbie.Logger
             set => Out.LogLevel = value;
         }
 
+        public override int MaxChars
+        {
+            get => Out.MaxChars;
+            set => Out.MaxChars = value;
+        }
+
         public void Start()
         {
             if (roleProvider != null)
