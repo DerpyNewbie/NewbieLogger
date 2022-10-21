@@ -90,7 +90,7 @@ namespace DerpyNewbie.Shooter.Command
             if (args.Length >= 2)
             {
                 var request = ConsoleParser.TryParseInt(args[1]);
-                ((NewbieLogger)console.Out).MaxChars = request;
+                console.Out.MaxChars = request;
             }
 
             console.Println($"MaxCharLength: {((NewbieLogger)console.Out).MaxChars}");
@@ -126,18 +126,33 @@ namespace DerpyNewbie.Shooter.Command
         {
             if (args.Length >= 2)
             {
-                var request = ParseLevel(args[1]);
-                if (request == -1)
+                if (!ParseLevel(args[1], out var request))
                 {
                     console.Println("<color=red>Invalid log level name</color>");
                     return "invalid";
                 }
 
-                console.LogLevel = request;
+                console.LogLevel = (int)request;
             }
 
             console.Println($"LogLevel: {GetLevelString(console.Out)}");
             return $"{GetLevelString(console.Out)}";
+        }
+
+        private string HandleLog(NewbieConsole console, string[] args)
+        {
+            var level = LogLevels.Info;
+            var msg = args.GetSpanOfArray(1, args.Length - 1);
+            if (args.Length >= 2 && ParseLevel(args[1], out var inLevel))
+            {
+                level = inLevel;
+                msg = args.GetSpanOfArray(2, args.Length - 2);
+            }
+
+            var msgString = string.Join(" ", msg);
+            console.LogWithLevelFormatted(msgString, (int)level);
+
+            return msgString;
         }
 
         private string GetTestCase()
@@ -145,33 +160,44 @@ namespace DerpyNewbie.Shooter.Command
             return _testStringCases[Random.Range(0, _testStringCases.Length - 1)];
         }
 
-        private static int ParseLevel(string text)
+        private static bool ParseLevel(string text, out LogLevels level)
         {
             switch (text.ToLower())
             {
                 case "a":
                 case "all":
-                    return (int)LogLevels.All;
+                    level = LogLevels.All;
+                    return true;
                 case "in":
+                case "inner":
                 case "internal":
-                    return (int)LogLevels.Internal;
+                    level = LogLevels.Internal;
+                    return true;
                 case "v":
+                case "verb":
                 case "verbose":
-                    return (int)LogLevels.Verbose;
+                    level = LogLevels.Verbose;
+                    return true;
                 case "i":
                 case "info":
-                    return (int)LogLevels.Info;
+                    level = LogLevels.Info;
+                    return true;
                 case "w":
                 case "warn":
                 case "warning":
-                    return (int)LogLevels.Warn;
+                    level = LogLevels.Warn;
+                    return true;
                 case "e":
+                case "err":
                 case "error":
-                    return (int)LogLevels.Error;
+                    level = LogLevels.Error;
+                    return true;
                 case "off":
-                    return (int)LogLevels.Off;
+                    level = LogLevels.Off;
+                    return true;
                 default:
-                    return -1;
+                    level = LogLevels.Off;
+                    return false;
             }
         }
 
@@ -187,12 +213,36 @@ namespace DerpyNewbie.Shooter.Command
         }
 
         public override string Label => "Console";
-        public override string[] Aliases => NewbieConsole.EmptyAlias();
+        public override string[] Aliases => new[]
+            { "Log", "LogVerb", "LogVerbose", "LogInfo", "LogWarn", "LogWarning", "LogErr", "LogError" };
         public override string Description => "Provides basic control of console object.";
-        public override string Usage => "<command> <pickup|here|enable|clear|level|stressTest>";
+        public override string Usage => "<command> <pickup|here|enable|clear|level|stressTest|log>";
 
         public override string OnCommand(NewbieConsole console, string label, string[] vars, ref string[] envVars)
         {
+            var lowerLabel = label.ToLower();
+            if (lowerLabel.StartsWith("log"))
+                switch (lowerLabel)
+                {
+                    case "logverb":
+                    case "logverbose":
+                        console.LogVerbose(string.Join(" ", vars));
+                        return ConsoleLiteral.GetNone();
+                    case "logwarn":
+                    case "logwarning":
+                        console.LogWarn(string.Join(" ", vars));
+                        return ConsoleLiteral.GetNone();
+                    case "logerr":
+                    case "logerror":
+                        console.LogError(string.Join(" ", vars));
+                        return ConsoleLiteral.GetNone();
+                    case "log":
+                    case "loginfo":
+                    default:
+                        console.Log(string.Join(" ", vars));
+                        return ConsoleLiteral.GetNone();
+                }
+
             if (vars == null || vars.Length == 0)
             {
                 console.PrintUsage(this);
@@ -220,6 +270,8 @@ namespace DerpyNewbie.Shooter.Command
                 case "st":
                 case "stresstest":
                     return StressTest(console, vars);
+                case "log":
+                    return HandleLog(console, vars);
                 default:
                     console.PrintUsage(this);
                     return ConsoleLiteral.GetNone();
