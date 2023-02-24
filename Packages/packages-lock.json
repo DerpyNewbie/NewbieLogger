@@ -190,7 +190,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "cc469111a610dce2a04d7e02b2339fdd1b891fdd"
+      "hash": "fbfea9266dd670f9fba449238d8cab41ac0b6c6f"
     },
     "dev.derpynewbie.logger": {
       "version": "file:dev.derpynewbie.logger",
