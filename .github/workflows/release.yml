@@ -11,7 +11,7 @@ on:
       - '\d+.\d+.\d+-beta-\d+'
 
 env:
-  packageName: "dev.derpynewbie.common"
+  packageName: "dev.derpynewbie.logger"
 
 permissions:
   contents: write
