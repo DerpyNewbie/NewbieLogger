@@ -1,4 +1,4 @@
-﻿name: Dispatch vpm-repos build
+name: Dispatch vpm-repos build
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     workflows: [Build Release]
     types:
       - completed
-    release:
+  release:
       types: [published, created, edited, unpublished, deleted, released]
 
 permissions:
