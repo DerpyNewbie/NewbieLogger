@@ -14,6 +14,9 @@
     },
     "com.vrchat.udonsharp": {
       "version": "1.1.1"
+    },
+    "dev.derpynewbie.common": {
+      "version": "0.3.4"
     }
   },
   "locked": {
@@ -41,6 +44,13 @@
       "version": "1.1.8",
       "dependencies": {
         "com.vrchat.worlds": "^3.1.x"
+      }
+    },
+    "dev.derpynewbie.common": {
+      "version": "0.3.4",
+      "dependencies": {
+        "com.vrchat.worlds": "3.2.x",
+        "com.vrchat.udonsharp": "1.1.x"
       }
     }
   }
