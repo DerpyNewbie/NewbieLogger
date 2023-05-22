@@ -60,5 +60,4 @@ jobs:
             ${{ env.zipFile }}
             ${{ env.unityPackage }}
             Packages/${{ env.packageName }}/package.json
-          draft: true
           generate_release_notes: true
