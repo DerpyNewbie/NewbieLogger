@@ -107,7 +107,8 @@ namespace DerpyNewbie.Logger
                 return;
             }
 
-            printable.Println(obj.ToString());
+            Debug.Log(obj);
+            printable.Println(obj);
         }
 
         [PublicAPI]
@@ -131,8 +132,7 @@ namespace DerpyNewbie.Logger
                 Debug.Log(message);
         }
     }
-    
-    
+
     [PublicAPI]
     public enum LogLevels
     {
