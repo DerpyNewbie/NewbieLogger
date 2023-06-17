@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - master
     # basically matches semver
     tags:
       - '\d+.\d+.\d+'
