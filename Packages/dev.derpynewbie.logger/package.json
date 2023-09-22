@@ -1,6 +1,6 @@
 {
   "name": "dev.derpynewbie.logger",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "displayName": "Newbie Logger",
   "description": "Feature rich U# Logger/Console for VRChat",
   "unity": "2019.4",
@@ -21,6 +21,6 @@
     "com.vrchat.udonsharp": "1.1.x",
     "dev.derpynewbie.common": "0.3.x"
   },
-  "url": "https://github.com/derpynewbie/NewbieLogger/releases/download/0.1.9/dev.derpynewbie.logger-0.1.9.zip",
+  "url": "https://github.com/derpynewbie/NewbieLogger/releases/download/0.1.10/dev.derpynewbie.logger-0.1.10.zip",
   "hideInEditor": false
 }
