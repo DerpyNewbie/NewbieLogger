@@ -17,10 +17,8 @@
     }
   ],
   "vpmDependencies": {
-    "com.vrchat.worlds": ">=3.2.0 <=3.3.x",
-    "com.vrchat.udonsharp": "1.1.x",
+    "com.vrchat.worlds": "^3.4.0",
     "dev.derpynewbie.common": "0.3.x"
   },
-  "url": "https://github.com/derpynewbie/NewbieLogger/releases/download/0.1.10/dev.derpynewbie.logger-0.1.10.zip",
   "hideInEditor": false
 }
