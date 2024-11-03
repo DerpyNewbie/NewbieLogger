@@ -1,4 +1,5 @@
-﻿using UdonSharp;
+﻿using DerpyNewbie.Common;
+using UdonSharp;
 using UnityEngine;
 
 namespace DerpyNewbie.Logger
@@ -6,10 +7,14 @@ namespace DerpyNewbie.Logger
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class NewbieConsoleCommandRegisterer : UdonSharpBehaviour
     {
+        [NewbieInject]
         [SerializeField]
+        [HideInInspector]
         private NewbieConsole console;
+
         [SerializeField]
         private NewbieConsoleCommandHandler[] registeringCommandHandler;
+
         [SerializeField]
         private bool registerChildOfThisObject = true;
 
