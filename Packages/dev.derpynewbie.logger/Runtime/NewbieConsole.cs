@@ -14,7 +14,7 @@ namespace DerpyNewbie.Logger
     [DefaultExecutionOrder(-10000)] [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class NewbieConsole : PrintableBase
     {
-        private const string Version = "0.1.11";
+        private const string Version = "0.2.0-beta.1";
 
         [SerializeField]
         private LogLevels defaultLogLevel = LogLevels.Info;
