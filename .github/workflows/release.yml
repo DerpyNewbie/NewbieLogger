@@ -8,7 +8,8 @@ on:
     # basically matches semver
     tags:
       - '\d+.\d+.\d+'
-      - '\d+.\d+.\d+-beta-\d+'
+      - '\d+.\d+.\d+-beta.\d+'
+      - '\d+.\d+.\d+-rc.\d+'
 
 env:
   packageName: "dev.derpynewbie.logger"
