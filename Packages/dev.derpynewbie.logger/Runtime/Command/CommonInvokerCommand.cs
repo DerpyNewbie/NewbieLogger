@@ -1,10 +1,11 @@
-﻿using System;
-using DerpyNewbie.Common;
+﻿using DerpyNewbie.Common;
 using DerpyNewbie.Common.Invoker;
+using UdonSharp;
 using UnityEngine;
 
 namespace DerpyNewbie.Logger.Command
 {
+    [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class CommonInvokerCommand : ActionCommandHandler
     {
         [SerializeField]
