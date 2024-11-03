@@ -331,11 +331,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5781539624899541764, guid: a31a4a556d21da64a8bfb4349d66a85b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5781539625169256791, guid: a31a4a556d21da64a8bfb4349d66a85b,
         type: 3}
       propertyPath: m_AnchorMax.x
