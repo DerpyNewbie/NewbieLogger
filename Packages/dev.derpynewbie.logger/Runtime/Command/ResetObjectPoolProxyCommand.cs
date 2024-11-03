@@ -21,7 +21,7 @@ namespace DerpyNewbie.Logger.Command
         private ObjectPoolProxy[] targetProxies;
 
         [SerializeField]
-        private bool requireModerator;
+        private bool onlyModerator;
 
         public override string Label => commandLabel;
         public override string[] Aliases => commandAliases;
@@ -37,6 +37,12 @@ namespace DerpyNewbie.Logger.Command
         public override void OnActionCommand(NewbieConsole console, string label, ref string[] vars,
             ref string[] envVars)
         {
+            if (onlyModerator && !console.IsSuperUser)
+            {
+                console.Println("You have to be moderator to use this command.");
+                return;
+            }
+            
             vars = vars.RemoveItem("-s", out var suppress);
 
             foreach (var proxy in targetProxies)
