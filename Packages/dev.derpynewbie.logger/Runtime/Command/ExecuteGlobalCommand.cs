@@ -1,4 +1,5 @@
-﻿using DerpyNewbie.Logger;
+﻿using DerpyNewbie.Common;
+using DerpyNewbie.Logger;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -14,7 +15,9 @@ namespace DerpyNewbie.Shooter.Command
 
         [UdonSynced]
         private string _globalExecutionCommand;
+
         private int _lastRequestVersion;
+
         [UdonSynced]
         private int _requestVersion;
 
@@ -33,7 +36,7 @@ namespace DerpyNewbie.Shooter.Command
             {
                 _lastRequestVersion = _requestVersion;
                 _console.Println(
-                    $"Globally executing command with request version of {_requestVersion}: \"{_globalExecutionCommand}\"");
+                    $"{NewbieUtils.GetPlayerName(Networking.GetOwner(gameObject))} is globally executing a command with request version of {_requestVersion}: \"{_globalExecutionCommand}\"");
                 _console.Evaluate(_globalExecutionCommand);
             }
         }
