@@ -18,7 +18,7 @@
   ],
   "vpmDependencies": {
     "com.vrchat.worlds": "^3.4.0",
-    "dev.derpynewbie.common": "^0.4.0"
+    "dev.derpynewbie.common": "^0.3.0"
   },
   "hideInEditor": false
 }
