@@ -24,8 +24,7 @@ namespace DerpyNewbie.Logger
         private Selectable fakeSelectable;
         [SerializeField]
         private PrintableBase consoleOut;
-        [FormerlySerializedAs("_roleProvider")]
-        [SerializeField]
+        [SerializeField] [NewbieInject]
         private RoleProvider roleProvider;
         [SerializeField]
         private bool isMasterSuperUser;
