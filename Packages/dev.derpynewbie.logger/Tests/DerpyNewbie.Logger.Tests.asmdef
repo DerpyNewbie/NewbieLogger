@@ -1,5 +1,6 @@
 {
     "name": "DerpyNewbie.Logger.Tests",
+    "rootNamespace": "DerpyNewbie.Logger.Test",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
