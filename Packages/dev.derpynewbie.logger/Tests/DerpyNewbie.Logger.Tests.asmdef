@@ -2,6 +2,7 @@
     "name": "DerpyNewbie.Logger.Tests",
     "rootNamespace": "DerpyNewbie.Logger.Test",
     "references": [
+        "VRC.SDK3",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "DerpyNewbie.Logger"

@@ -4,6 +4,7 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
+        "VRC.SDK3",
         "DerpyNewbie.Logger"
     ],
     "includePlatforms": [
@@ -13,7 +14,8 @@
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "nunit.framework.dll"
+        "nunit.framework.dll",
+        "VRCSDK3.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [
